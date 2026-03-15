@@ -1,4 +1,4 @@
-const API = "https://task-manager-website-v2h5.onrender.com";
+const API = "https://task-manager-website-v2h5.onrender.com/";
 
 const token = localStorage.getItem("token");
 
