@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/api";
+const API = "https://task-manager-website-v2h5.onrender.com/api";
 const token = localStorage.getItem("token");
 
 async function api(url) {
