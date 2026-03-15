@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task Manager Dashboard</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../css/task.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+    <!-- Main -->
+
+    <div class="main">
+      <!-- Header -->
+
+      <div class="header">
+        <input
+          class="form-control w-25"
+          placeholder="Search..." />
+
+        <div>
+          <button
+            class="btn btn-primary"
+            id="newTaskBtn">
+            New Task +
+          </button>
+        </div>
+      </div>
+
+      <h4 class="mb-4">Tasks</h4>
+
+      <div class="row g-4">
+        <!-- TODO -->
+
+        <div class="col-md-3">
+          <div
+            class="task-column"
+            id="todoColumn">
+            <h6 class="mb-3">📋 To Do</h6>
+          </div>
+        </div>
+
+        <!-- IN PROGRESS -->
+
+        <div class="col-md-3">
+          <div
+            class="task-column"
+            id="progressColumn">
+            <h6 class="mb-3">⏳ In Progress</h6>
+          </div>
+        </div>
+
+        <!-- REVIEW -->
+
+        <div class="col-md-3">
+          <div
+            class="task-column"
+            id="reviewColumn">
+            <h6 class="mb-3">👀 Review</h6>
+          </div>
+        </div>
+
+        <!-- DONE -->
+
+        <div class="col-md-3">
+          <div
+            class="task-column"
+            id="doneColumn">
+            <h6 class="mb-3">✅ Done</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREATE TASK MODAL -->
+    <div
+      class="modal fade"
+      id="createTaskModal"
+      tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create New Task</h5>
+            <button
+              class="btn-close"
+              data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input
+                id="newTaskTitle"
+                class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea
+                id="newTaskDesc"
+                class="form-control"></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cancel
+            </button>
+
+            <button
+              class="btn btn-primary"
+              onclick="createTask()">
+              Create Task
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TASK DETAIL MODAL -->
+
+    <div
+      class="modal fade"
+      id="taskModal"
+      tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4">
+            <div class="row">
+              <!-- LEFT SIDE -->
+
+              <div class="col-md-8">
+                <!-- TITLE -->
+
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3">
+                  <h4
+                    id="taskTitle"
+                    contenteditable="false">
+                    Design Admin Dashboard
+                  </h4>
+
+                  <button
+                    class="btn btn-sm btn-outline-secondary"
+                    onclick="editTitle()">
+                    Edit
+                  </button>
+                </div>
+
+                <!-- DESCRIPTION -->
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between">
+                    <h6>Description</h6>
+
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      onclick="editDescription()">
+                      Edit
+                    </button>
+                  </div>
+
+                  <textarea
+                    id="taskDescription"
+                    class="form-control"
+                    rows="4"
+                    disabled>
+                  </textarea>
+                </div>
+
+                <!-- SUBTASKS -->
+
+                <!-- <div class="mb-4">
+                  <h6>Subtasks</h6>
+
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between">
+                      Setup layout
+
+                      <input type="checkbox" />
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                      Build components
+
+                      <input type="checkbox" />
+                    </li>
+                  </ul>
+                </div> -->
+
+                <!-- ACTIVITY -->
+
+                <div>
+                  <h6>Activity</h6>
+
+                  <div class="small text-muted">
+                    truongkiet180 updated the task
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT PANEL -->
+
+              <div class="col-md-4">
+                <div class="card p-3">
+                  <h6 class="mb-3">Details</h6>
+
+                  <!-- ASSIGNEE -->
+
+                  <div class="mb-3">
+                    <label class="form-label">Assignee</label>
+
+                    <select
+                      class="form-select"
+                      id="taskAssignee">
+                      <option value="">Unassigned</option>
+                    </select>
+                  </div>
+
+                  <!-- PRIORITY -->
+
+                  <div class="mb-3">
+                    <label class="form-label">Priority</label>
+
+                    <select
+                      class="form-select"
+                      id="taskPriority">
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+
+                  <!-- STATUS -->
+
+                  <div class="mb-3">
+                    <label class="form-label">Status</label>
+
+                    <select
+                      class="form-select"
+                      id="taskStatus">
+                      <option value="todo">To Do</option>
+                      <option value="in-progress">In Progress</option>
+                      <option value="review">Review</option>
+                      <option value="completed">Done</option>
+                    </select>
+                  </div>
+
+                  <!-- START DATE -->
+
+                  <div class="mb-3">
+                    <label class="form-label">Start Date</label>
+
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="taskStartDate" />
+                  </div>
+
+                  <!-- DUE DATE -->
+
+                  <div class="mb-3">
+                    <label class="form-label">Due Date</label>
+
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="taskDueDate" />
+                  </div>
+
+                  <!-- DELETE BUTTON -->
+                  <button
+                    class="btn btn-danger m-1"
+                    onclick="deleteTask()">
+                    Delete
+                  </button>
+
+                  <!-- SAVE BUTTON -->
+
+                  <button
+                    class="btn btn-primary m-1"
+                    onclick="saveTask()">
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/task.js"></script>
+    <script src="../js/loadSidebar.js"></script>
+  </body>
+</html>

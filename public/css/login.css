@@ -1,0 +1,12 @@
+body {
+  background: #f4f6f9;
+}
+
+.login-card {
+  width: 400px;
+}
+
+.social-btn img {
+  width: 20px;
+  margin-right: 8px;
+}

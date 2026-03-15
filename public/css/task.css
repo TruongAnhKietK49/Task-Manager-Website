@@ -1,0 +1,36 @@
+body {
+  background: #f4f6fb;
+}
+
+.main {
+  margin-left: 240px;
+  padding: 25px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.task-column {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  min-height: 400px;
+}
+
+.task-card {
+  cursor: grab;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-card:hover {
+  background: #eef2ff;
+  cursor: pointer;
+}

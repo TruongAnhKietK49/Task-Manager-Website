@@ -1,0 +1,53 @@
+<div class="sidebar">
+  <h4>📌 TaskMinder</h4>
+
+  <div class="user-info mb-3">👤 <span id="username"></span></div>
+
+  <a href="./dashboard.html">Dashboard</a>
+  <a href="./project.html">Project</a>
+  <a href="./task.html">Task</a>
+  <a href="./calendar.html">Calendar</a>
+
+  <hr />
+
+  <button
+    class="btn btn-light w-100"
+    onclick="logout()">
+    Logout
+  </button>
+</div>
+
+<style>
+  .sidebar {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    background: white;
+    border-right: 1px solid #eee;
+    padding: 20px;
+  }
+
+  .sidebar h4 {
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #444;
+    margin-bottom: 8px;
+  }
+
+  .sidebar a.active {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .user-info {
+    font-size: 14px;
+    color: #666;
+  }
+</style>

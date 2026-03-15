@@ -1,0 +1,29 @@
+.main {
+  margin-left: 240px;
+  padding: 25px;
+}
+.project-card {
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #dc3545;
+  display: none;
+}
+
+.project-card:hover .delete-btn {
+  display: block;
+}

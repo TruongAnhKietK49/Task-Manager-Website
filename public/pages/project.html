@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Projects</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../css/project.css" />
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <div class="main">
+      <h2 class="mb-4">📁 Projects</h2>
+
+      <!-- CREATE PROJECT -->
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5>Create New Project</h5>
+
+          <div class="row g-3 mt-2">
+            <div class="col-md-5">
+              <input
+                type="text"
+                id="projectName"
+                class="form-control"
+                placeholder="Project name" />
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                id="projectDesc"
+                class="form-control"
+                placeholder="Description" />
+            </div>
+
+            <div class="col-md-2">
+              <button
+                class="btn btn-primary w-100"
+                onclick="createProject()">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT LIST -->
+
+      <div
+        class="row"
+        id="projectList"></div>
+    </div>
+
+    <script src="../js/project.js"></script>
+    <script src="../js/loadSidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
